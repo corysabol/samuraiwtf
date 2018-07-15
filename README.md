@@ -1,12 +1,12 @@
-# samuraiwtf
+# samuraiwtf ultralight edition
 
-**Want to Contribute? See section at the end of this readme**
-
-The purpose behind this project is to migrate the SamuraiWTF (http://www.samurai-wtf.org), which until now has been maintained as a monolithic virtual machine, to a "packageable" distribution system. The current direction of choice is Vagrant with a VirtualBox provider, which is the effort in this master branch.  Alternative efforts can be found in other branches.
+## What is this? And how does it relate to the main SamuraiWTF build?
+This is my personal experimental fork. It exists for the pursuit of ideas that aren't necessarily compatible with the upstream at this time. If you're actually teaching a class, I recommend using the upstream version instead.
 
 **To download an OVA to import a full virtual machine, visit https://tiny.si/samurai. 
 
 A [video tutorial](https://www.youtube.com/watch?v=3a3qOFubfGg) is available showing how to install from OVA.
+**Want to Contribute? See section at the end of this readme**
 
 ## Prerequisites
 - Vagrant - https://www.vagrantup.com/
@@ -55,6 +55,8 @@ Some of the target environments need to be initialized before use.  Use their se
 The scripts and resources belonging to this project itself are licensed under the GNU Public License version 3 (GPL3).
 All software loaded into the VM, including the tools, targets, utilities, and operating system itself retain their original license agreements.
 
+=======
+1. Don't. This fork is not ready for general consumption. Refer to the upstream instead.
 
 # Contributors
 Contributors are very welcome and the contribution process is standard:
