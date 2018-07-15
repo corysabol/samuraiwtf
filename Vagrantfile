@@ -11,12 +11,12 @@ Vagrant.configure("2") do |config|
 # Single Machine
 # Primary build
   config.vm.define "samuraiwtf", primary: true do |samuraiwtf|
-    samuraiwtf.vm.host_name = "SamuraiWTF"
+    samuraiwtf.vm.host_name = "SamuraiUE"
 
     samuraiwtf.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
       vb.gui = true
-      vb.name = "SamuraiWTF-4.0.1"
+      vb.name = "Samurai-Container-Hackery-Edition"
     # Customize the amount of memory on the VM:
       vb.memory = "4096"
       vb.customize ["modifyvm", :id, "--vram", "128"]
