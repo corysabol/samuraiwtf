@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
 # Single Machine
 # Primary build
   config.vm.define "samuraiwtf", primary: true do |samuraiwtf|
-    samuraiwtf.vm.host_name = "SamuraiUE"
+    samuraiwtf.vm.host_name = "SamuraiWL"
 
     samuraiwtf.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
