@@ -1,4 +1,4 @@
-# samuraiwtf ultralight edition
+# samuraiwtf testbed
 
 ## What is this? And how does it relate to the main SamuraiWTF build?
 This is my personal experimental fork. It exists for the pursuit of ideas that aren't necessarily compatible with the upstream at this time. If you're actually teaching a class, I recommend using the upstream version instead.
