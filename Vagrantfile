@@ -37,10 +37,16 @@ Vagrant.configure("2") do |config|
     # samuraiwtf.vm.provision :shell, path: "install/userenv_bootstrap.sh"
     # samuraiwtf.vm.provision :shell, path: "install/target_bootstrap.sh"
     # samuraiwtf.vm.provision :shell, path: "install/local_targets.sh"
-    options = YAML.load_file('options.yaml')
-    
 
-    options["targets"].each { |target_name| samuraiwtf.vm.provision :shell, path: "target_install/#{target_name}.sh"}
+    # Provision tooling / packages based on config file
+    options["installs"].each { |install_name| 
+      puts options["env"][install_name]
+      samuraiwtf.vm.provision :shell, env: options["env"][install_name], path: "install/#{install_name}.sh"
+    }
+
+    options["targets"].each { |target_name| 
+      samuraiwtf.vm.provision :shell, path: "target_install/#{target_name}.sh"
+     }
 
   end
 
