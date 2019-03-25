@@ -2,6 +2,11 @@
 
 echo 'Installing Docker Community Edition...'
 
+# echo 'Adding stretch-backports'
+
+# echo "deb http://ftp.debian.org/debian stretch-backports main" | sudo tee -a /etc/apt/sources.list
+# sudo apt-get update
+
 #sudo apt-get install -y vim
 
 sudo apt-get install -y \
@@ -26,3 +31,8 @@ echo "...Docker CE installed."
 sudo docker --version
 sudo docker run hello-world
 
+# echo 'Installing Docker Compose...'
+# sudo curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# #The above curl throws a bunch of output into stderr when working fine. Consider redirecting somewhere else.
+# sudo chmod +x /usr/local/bin/docker-compose
+# echo '...Docker Compose installed.
