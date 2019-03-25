@@ -5,6 +5,10 @@ require 'yaml'
 
 options = YAML.load_file('options.yaml')
 
+puts "===== Options ====="
+puts options
+puts "==================="
+
 Vagrant.configure("2") do |config|
 
 #shared settings
@@ -40,13 +44,22 @@ Vagrant.configure("2") do |config|
 
     # Provision tooling / packages based on config file
     options["installs"].each { |install_name| 
-      puts options["env"][install_name]
+      env = {}
+      if options["env"].key?(install_name)
+        env = options["env"][install_name]
+        # puts env
+      end
       samuraiwtf.vm.provision :shell, env: options["env"][install_name], path: "install/#{install_name}.sh"
     }
 
     options["targets"].each { |target_name| 
-      samuraiwtf.vm.provision :shell, path: "target_install/#{target_name}.sh"
-     }
+      env = {}
+      if options["env"].key?(target_name)
+        env = options["env"][target_name]
+        # puts env
+      end
+      samuraiwtf.vm.provision :shell, env: env, path: "target_install/#{target_name}.sh"
+    }
 
   end
 
