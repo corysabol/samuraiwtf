@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
         env = options["env"][install_name]
         # puts env
       end
-      samuraiwtf.vm.provision :shell, env: options["env"][install_name], path: "install/#{install_name}.sh"
+      samuraiwtf.vm.provision :shell, env: env, path: "install/#{install_name}.sh"
     }
 
     options["targets"].each { |target_name| 
