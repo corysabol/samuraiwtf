@@ -29,7 +29,10 @@ echo "...installing docker-ce..."
 sudo apt-get install -y docker-ce=$DOCKER_VER docker-ce-cli=$DOCKER_VER containerd.io
 echo "...Docker CE installed."
 sudo docker --version
-sudo docker run hello-world
+#sudo docker run hello-world
+
+# add vagrant to docker group
+usermod -aG docker vagrant
 
 # echo 'Installing Docker Compose...'
 # sudo curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
