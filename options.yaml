@@ -4,10 +4,14 @@ targets:
 
 installs:
   - docker # note the docker.sh install file also adds docker compose
+  - go # needed for kind
+  - kind
 
 env:
   docker:
     DOCKER_VER: "5:18.09.1~3-0~debian-stretch" 
+  go:
+    INSTALL_URL: "https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz"
   harpoon:
     GIT_REPO: "https://github.com/ProfessionallyEvil/harpoon"
   docker_user_2_root:
