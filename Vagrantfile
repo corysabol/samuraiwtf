@@ -45,20 +45,28 @@ Vagrant.configure("2") do |config|
     # Provision tooling / packages based on config file
     options["installs"].each { |install_name| 
       env = {}
+      privileged = true
       if options["env"].key?(install_name)
         env = options["env"][install_name]
+        if env.key?("PRIVILEGED")
+          privileged = env["PRIVILEGED"]
+        end
         # puts env
       end
-      samuraiwtf.vm.provision :shell, env: env, path: "install/#{install_name}.sh"
+      samuraiwtf.vm.provision :shell, env: env, privileged: privileged, path: "install/#{install_name}.sh"
     }
 
     options["targets"].each { |target_name| 
       env = {}
+      privileged = true
       if options["env"].key?(target_name)
         env = options["env"][target_name]
+        if env.key?("PRIVILEGED")
+          privileged = env["PRIVILEGED"]
+        end
         # puts env
       end
-      samuraiwtf.vm.provision :shell, env: env, path: "target_install/#{target_name}.sh"
+      samuraiwtf.vm.provision :shell, env: env, privileged: privileged, path: "target_install/#{target_name}.sh"
     }
 
   end

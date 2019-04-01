@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euox pipefail
+IFS=$'\n\t'
 
 echo 'Installing Docker Community Edition...'
 

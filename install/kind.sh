@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euox pipefail
 IFS=$'\n\t'
 
 # source all the variables from go env
@@ -10,4 +10,6 @@ set -a # make all variables automatically exported
 . ./goenv
 set +a # restore default behavior
 
-$GOBINARY get -u sigs.k8s.io/kind
+# use the env var because /etc/profile 
+# doesn't get set in vagrant for the root user
+go get -u sigs.k8s.io/kind

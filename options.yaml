@@ -1,18 +1,25 @@
 targets:
   - docker_socket_mount
   - docker_user_2_root
+  - kube_cluster/kube_cluster # provide a path to the installer script for more complex targets and tools.
 
 installs:
   - docker # note the docker.sh install file also adds docker compose
   - go # needed for kind
   - kind
+  - kubectl # needed for provisioning and configuring the cluster
 
 env:
   docker:
     DOCKER_VER: "5:18.09.1~3-0~debian-stretch" 
   go:
     INSTALL_URL: "https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz"
+    PRIVILEGED: false # don't install go as root, but instead as the vagrant user. 
+  kind:
+    PRIVILEGED: false # don't install go as root, but instead as the vagrant user.
   harpoon:
     GIT_REPO: "https://github.com/ProfessionallyEvil/harpoon"
   docker_user_2_root:
     DOCKER_PRIV_ESC_USER: "ahab"
+  kube_cluster/kube_cluster:
+    PRIVILEGED: false
