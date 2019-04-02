@@ -5,10 +5,6 @@ require 'yaml'
 
 options = YAML.load_file('options.yaml')
 
-puts "===== Options ====="
-puts options
-puts "==================="
-
 Vagrant.configure("2") do |config|
 
 #shared settings
