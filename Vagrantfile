@@ -16,8 +16,9 @@ Vagrant.configure("2") do |config|
 
 # Single Machine
 # Primary build
+  config.vm.network "forwarded_port", guest: 8080, host: 8888
   config.vm.define "samuraiwtf", primary: true do |samuraiwtf|
-    samuraiwtf.vm.host_name = "SamuraiWL"
+    samuraiwtf.vm.host_name = "SamuraiWTF-ConatinerEdition"
 
     samuraiwtf.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine

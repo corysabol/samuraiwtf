@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: struts
+  labels:
+    app: struts2app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: struts2app
+  template:
+    metadata:
+      labels:
+        app: struts2app
+    spec:
+      containers:
+        - name: struts2
+          image: piesecurity/apache-struts2-cve-2017-5638
+          ports:
+            - name: http-port
+              containerPort: 8080

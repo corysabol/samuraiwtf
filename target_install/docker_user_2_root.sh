@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eoux pipefail
+#set -eoux pipefail
 IFS='\n\t'
 
 # create a normal user and add them to the docker group

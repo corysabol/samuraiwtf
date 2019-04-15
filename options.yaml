@@ -4,10 +4,13 @@ targets:
   - kube_cluster/kube_cluster # provide a path to the installer script for more complex targets and tools.
 
 installs:
+# Make sure to list these in order of dependency, if any installs depend on others.
+# For example kind depends on go being installed before it.
   - docker # note the docker.sh install file also adds docker compose
   - go # needed for kind
   - kind
   - kubectl # needed for provisioning and configuring the cluster
+  - gui/gui # install the openbox gui
 
 env:
   docker:
@@ -23,3 +26,5 @@ env:
     DOCKER_PRIV_ESC_USER: "ahab"
   kube_cluster/kube_cluster:
     PRIVILEGED: false
+  gui/gui:
+    CONFIG_PATH: /vagrant/install/gui/config
