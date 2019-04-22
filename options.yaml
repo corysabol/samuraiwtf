@@ -11,6 +11,7 @@ installs:
   - kind
   - kubectl # needed for provisioning and configuring the cluster
   - gui/gui # install the openbox gui
+  #- noop
 
 env:
   docker:

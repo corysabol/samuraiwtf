@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: jenkins
   labels:
-    app: nginx
+    app: jenkins 
 spec:
   replicas: 1
   selector:
@@ -14,6 +14,7 @@ spec:
       labels:
         app: jenkins 
     spec:
+      serviceAccountName: jenkins
       containers:
         - name: jenkins
           image: 84d93r/jenkins:1.0
