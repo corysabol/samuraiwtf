@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: useless-pod
+spec:
+    containers:
+    - name: ubuntu 
+      image: ubuntu:trusty
+      command: ["sleep", "infinity"]

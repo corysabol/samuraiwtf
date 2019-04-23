@@ -1,7 +1,7 @@
-from jenkins/jenkins:2.60.1
+FROM jenkins/jenkins:2.60.1
 
 # Distributed builds plugins
-RUN /usr/local/bin/install-plugins.sh ssh-slaves
+#RUN /usr/local/bin/install-plugins.sh ssh-slaves
 
 ## install notifications and publishing plugins
 #RUN /usr/local/bin/install-plugins.sh email-ext

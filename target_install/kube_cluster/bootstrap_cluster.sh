@@ -17,6 +17,7 @@ set +a
 /usr/local/bin/kubectl apply -f /home/vagrant/.kube_cluster/jenkins-service.yaml
 /usr/local/bin/kubectl apply -f /home/vagrant/.kube_cluster/struts2app-deployment.yaml
 /usr/local/bin/kubectl apply -f /home/vagrant/.kube_cluster/struts2app-service.yaml
+/usr/local/bin/kubectl apply -f /home/vagrant/.kube_cluster/useless-pod.yaml
 
 # Configure hosts file
 MASTER_NODE_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' kind-control-plane)
