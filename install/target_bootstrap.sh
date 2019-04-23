@@ -10,19 +10,25 @@ echo 'Constructing target apps...'
 sudo mkdir /opt/targets
 
 echo 'Setting up Juice Shop app...'
-sudo docker pull bkimminich/juice-shop
-#sudo docker run -d -p 3000:3000 bkimminich/juice-shop
+export JUICE_LINK=https://github.com$(curl -L -s https://github.com/bkimminich/juice-shop/releases/latest | grep node8_linux_x64.tgz | grep href | cut -d '"' -f 2)
+curl -s -L $JUICE_LINK -o /tmp/juiceshop.tgz
+tar xvfz /tmp/juiceshop.tgz -C /opt/targets 
+
+#sudo docker pull bkimminich/juice-shop
+#sudo docker run -d -p 3000:3000 bkimminich/juice-shop:snapshot
 echo 'Pulling DVWA docker image...'
 sudo docker pull bit0pus/docker-dvwa
+
+#MUTILLIDAE
 echo 'Pulling Mutillidae docker image...'
 sudo docker pull bit0pus/docker-mutillidae
 
 #BWAPP
 
-#DOJO BASIC
+#DOJO
 echo 'Setting up Samurai Dojo...'
 echo '...cloning repo...'
-sudo git clone --recursive https://github.com/mgillam/samurai-dojo-docker.git /opt/targets/samurai-dojo-docker
+sudo git clone --recursive https://github.com/SamuraiWTF/samurai-dojo-docker.git /opt/targets/samurai-dojo-docker
 echo '...rewriting db config...'
 sudo rm /opt/targets/samurai-dojo-docker/apps/Samurai-Dojo/basic/config.inc
 echo "<?php" | sudo tee /opt/targets/samurai-dojo-docker/apps/Samurai-Dojo/basic/config.inc
@@ -49,9 +55,13 @@ echo '...stopping app...'
 sudo docker-compose down
 echo 'Done.'
 
-#DOJO SCAVENGER
-
-#MUTILLIDAE
+#Client-Side Attack Lab
+echo "Setting up Mic_WG's Client-Side Attacks Lab"
+echo '...cloning repo...'
+sudo git clone https://github.com/ProfessionallyEvil/client-side-attacks-lab.git /opt/targets/client-side-attacks-lab
+echo '...fetching node dependencies for CORS Demonstrator...'
+cd /opt/targets/client-side-attacks-lab/targets/cors.dem
+npm install
 
 #Reverse Proxy
 
@@ -72,6 +82,26 @@ pushd /var/www/html
 sudo mkdir vulnscripts
 cd vulnscripts/
 sudo tar xf /tmp/config/www/html/vulnscripts.tar
+popd
+
+# Setting up professionallyevil.wtf
+echo 'setting up professionallyevil.wtf'
+pushd /var/www
+sudo mkdir professionallyevil
+sudo chown samurai:samurai professionallyevil
+cd professionallyevil
+sudo echo 'It Works ;)' > index.html
+sudo chown samurai:samurai index.html
+popd
+
+# Setting up amoksecurity.wtf
+echo 'setting up amoksecurity.wtf'
+pushd /var/www
+sudo mkdir amoksecurity
+sudo chown samurai:samurai amoksecurity
+cd amoksecurity
+sudo echo 'It Works ;)' > index.html
+sudo chown samurai:samurai index.html
 popd
 
 
