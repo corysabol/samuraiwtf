@@ -48,10 +48,9 @@ fails you're encouraged to make an issue in this repository and inclued the `.ku
 The scripts and resources belonging to this project itself are licensed under the GNU Public License version 3 (GPL3).
 All software loaded into the VM, including the tools, targets, utilities, and operating system itself retain their original license agreements.
 
+# 👷‍♀️ Contributors
 =======
 1. Don't. This fork is not ready for general consumption. Refer to the upstream instead.
-
-# 👷‍♀️ Contributors
 Contributors are very welcome and the contribution process is standard:
 
   * fork this project
